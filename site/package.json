@@ -1,0 +1,22 @@
+{
+  "name": "choi-jeonghye-homepage",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "latest",
+    "@vitejs/plugin-react": "latest",
+    "d3-geo": "^3.1.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "latest",
+    "topojson-client": "^3.1.0",
+    "vite": "latest",
+    "world-atlas": "^2.0.2"
+  }
+}
