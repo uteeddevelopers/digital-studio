@@ -4,6 +4,7 @@ const menuItems = [
   ['publications', '논문과 저서'],
   ['awards', '수상과 연구비'],
   ['alumni', '제자 진출'],
+  ['blog', '연구 블로그'],
 ];
 
 export function SiteHeader({ currentRoute }) {

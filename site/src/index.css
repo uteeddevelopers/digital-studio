@@ -165,6 +165,25 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-top: 20px; padding-bottom: 20px; color: #68717d; font-size: .79rem; }
 .footer-inner a { color: var(--navy); text-underline-offset: 3px; }
 
+.blog-notice { margin: 24px 0 0; color: var(--muted); font-size: .85rem; line-height: 1.7; }
+.blog-list { max-width: 800px; margin: 24px 0 0; padding: 0; list-style: none; }
+.blog-list-item { padding: 25px 0; border-top: 1px solid var(--line); }
+.blog-list-item h2 { margin: 8px 0; font-size: 1.35rem; line-height: 1.45; }
+.blog-list-item h2 a { color: var(--ink); text-decoration: none; }
+.blog-list-item h2 a:hover { color: var(--blue); text-decoration: underline; }
+.blog-list-item p:not(.blog-year) { color: #596370; line-height: 1.75; }
+.blog-year { margin: 0; color: var(--blue); font-size: .8rem; font-weight: 700; }
+.blog-article { max-width: 760px; margin-inline: auto; }
+.blog-article > .eyebrow { margin-top: 32px; }
+.blog-article h1 { margin: 10px 0 0; font-size: 2.15rem; line-height: 1.35; overflow-wrap: anywhere; }
+.blog-summary { color: #4f5d6d; font-size: 1.05rem; line-height: 1.8; }
+.blog-question { margin: 30px 0 0; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 700; line-height: 1.7; }
+.blog-section { margin-top: 40px; }
+.blog-section h2, .blog-source h2 { color: var(--ink); font-size: 1.25rem; line-height: 1.45; }
+.blog-section p, .blog-source p { color: #3f4853; line-height: 1.9; overflow-wrap: anywhere; }
+.blog-source { margin: 44px 0; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.blog-source a, .blog-back { color: #245da9; font-weight: 650; text-underline-offset: 3px; }
+
 @media (max-width: 980px) {
   .header-inner { grid-template-columns: minmax(150px, 1fr) auto; gap: 10px 18px; padding-top: 15px; padding-bottom: 14px; }
   .primary-nav { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; }
@@ -178,12 +197,13 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 @media (max-width: 680px) {
   .page-shell { width: min(100% - 2rem, 1160px); }
   .header-inner { grid-template-columns: minmax(0, 1fr) auto; }
-  .nav-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px; padding: 3px; }
+  .nav-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; padding: 3px; }
   .menu-link { min-width: 0; min-height: 48px; padding: 6px 3px; font-size: .72rem; line-height: 1.3; text-align: center; white-space: normal; overflow-wrap: anywhere; }
   .brand-name { font-size: 1.2rem; }
   .brand-affiliation { font-size: .7rem; }
   .page-main { padding-top: 36px; padding-bottom: 62px; }
   .page-title { font-size: 1.85rem; }
+  .blog-article h1 { font-size: 1.75rem; }
   .page-description { font-size: .9rem; }
   .page-count { white-space: normal; }
   .profile-feature { grid-template-columns: minmax(0, 1fr); gap: 25px; }
