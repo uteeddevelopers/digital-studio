@@ -51,6 +51,15 @@ export default function App() {
     const post = location.route === 'blog' ? findBlogPost(location.article) : undefined;
     document.title = post ? `${post.title} | 최정혜 연구 블로그` : '최정혜 | 연세대학교 경영대학';
     document.querySelector('meta[name="description"]')?.setAttribute('content', post?.summary || '연세대학교 경영대학 최정혜 교수의 연구와 교육 활동');
+    const existingDate = document.head.querySelector('meta[property="article:published_time"]');
+    if (post?.publishedAt) {
+      const date = existingDate || document.createElement('meta');
+      date.setAttribute('property', 'article:published_time');
+      date.setAttribute('content', post.publishedAt);
+      if (!existingDate) document.head.appendChild(date);
+    } else {
+      existingDate?.remove();
+    }
   }, [location.route, location.article]);
 
   const Page = routes[location.route] || ProfilePage;

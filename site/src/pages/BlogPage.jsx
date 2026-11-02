@@ -29,6 +29,7 @@ export function BlogPage({ article }) {
       <p className="eyebrow">RESEARCH STORY · {post.year}</p>
       <h1>{post.title}</h1>
       <p className="blog-summary">{post.summary}</p>
+      <p className="blog-published"><time dateTime={post.publishedAt}>게시일 {post.publishedAt.replaceAll('-', '.')}</time></p>
       <p className="blog-notice">수업 실습을 위한 연구 소개 글입니다. 교수님의 공식 입장이나 직접 발언이 아닙니다.</p>
       <p className="blog-question">{post.question}</p>
       {post.sections.map((section) => (

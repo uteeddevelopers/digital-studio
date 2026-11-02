@@ -2,6 +2,7 @@ export const blogPosts = [
   {
     id: 'logo-size-2025',
     year: 2025,
+    publishedAt: '2026-11-03',
     title: '브랜드 로고는 크게 넣을수록 더 많이 공유될까?',
     summary: '패션 브랜드의 소셜 미디어 게시물을 살펴보면, 로고 크기와 공유의 관계는 브랜드가 가진 위상에 따라 달라졌습니다.',
     question: '소셜 콘텐츠를 만드는 마케터는 로고 크기를 어떻게 정해야 할까요?',
@@ -45,6 +46,7 @@ export const blogPosts = [
   {
     id: 'anthropomorphism-2026',
     year: 2026,
+    publishedAt: '2026-11-03',
     title: '같은 알림인데 왜 반응이 다를까? 이용 습관과 메시지의 감정',
     summary: '산책 앱 현장실험에서 알림의 감정 표현과 이용자의 기존 사용 빈도에 따라 서로 다른 반응이 관찰됐습니다.',
     question: '앱 알림을 기획할 때 모든 사용자에게 같은 말투를 보내도 될까요?',
