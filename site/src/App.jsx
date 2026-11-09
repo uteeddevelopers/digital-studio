@@ -19,6 +19,11 @@ const routes = {
 
 function readLocation() {
   const raw = window.location.hash.replace(/^#/, '');
+  // 일부 소셜 앱은 해시를 인코딩하므로 해시 없는 글 주소도 허용한다.
+  if (!raw) {
+    const article = new URLSearchParams(window.location.search).get('article');
+    if (article && findBlogPost(article)) return { route: 'blog', page: 1, article };
+  }
   const [route, query = ''] = raw.split('?');
   const params = new URLSearchParams(query);
   return { route, page: Number(params.get('page')) || 1, article: params.get('article') || '' };
@@ -82,6 +87,7 @@ export default function App() {
         <div className="page-shell footer-inner">
           <span>최정혜 교수 · 연세대학교 경영대학</span>
           <a href="mailto:jeonghye@yonsei.ac.kr">jeonghye@yonsei.ac.kr</a>
+          <a href="https://www.instagram.com/yonsei_digitalmarketing/" target="_blank" rel="noreferrer">수업 실습 Instagram ↗</a>
         </div>
       </footer>
     </>
