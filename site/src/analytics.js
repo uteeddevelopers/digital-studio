@@ -33,7 +33,7 @@ function initAnalytics() {
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
   // Never send the arbitrary browser URL, query string, title, or referrer.
-  window.gtag('set', { page_location: currentPage, page_referrer: '', page_title: 'Choi Lab' });
+  window.gtag('set', { page_location: currentPage, page_referrer: '', page_title: 'Choi Lab', ...campaignConfig() });
   window.gtag('js', new Date());
   window.gtag('config', measurementId, {
     send_page_view: false,
