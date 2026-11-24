@@ -1,5 +1,6 @@
 import { blogPosts, findBlogPost } from '../data/blogPosts.js';
 import { PageIntro } from '../components/PageIntro.jsx';
+import { recordResearchClick } from '../analytics.js';
 
 export function BlogPage({ article }) {
   const post = findBlogPost(article);
@@ -13,9 +14,9 @@ export function BlogPage({ article }) {
           {blogPosts.map((item) => (
             <li key={item.id} className="blog-list-item">
               <p className="blog-year">{item.year} 연구</p>
-              <h2><a href={`#blog?article=${item.id}`}>{item.title}</a></h2>
+              <h2><a href={`#blog?article=${item.id}`} onClick={() => recordResearchClick('blog_open', item.id)}>{item.title}</a></h2>
               <p>{item.summary}</p>
-              <a className="inline-source-link" href={`#blog?article=${item.id}`}>글 읽기</a>
+              <a className="inline-source-link" href={`#blog?article=${item.id}`} onClick={() => recordResearchClick('blog_open', item.id)}>글 읽기</a>
             </li>
           ))}
         </ol>
@@ -41,7 +42,7 @@ export function BlogPage({ article }) {
       <section className="blog-source">
         <h2>출처와 더 읽기</h2>
         <p>{post.citation}</p>
-        <a href={post.doi} target="_blank" rel="noreferrer">논문 원문 페이지 보기</a>
+        <a href={post.doi} target="_blank" rel="noreferrer" onClick={() => recordResearchClick('source_open', post.id)}>논문 원문 페이지 보기</a>
       </section>
       <a className="blog-back" href="#blog">← 연구 블로그 목록으로</a>
     </article>

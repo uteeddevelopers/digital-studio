@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SiteHeader } from './components/SiteHeader.jsx';
 import { AlumniPage } from './pages/AlumniPage.jsx';
 import { AwardsPage } from './pages/AwardsPage.jsx';
@@ -7,6 +7,7 @@ import { InterestsPage } from './pages/InterestsPage.jsx';
 import { ProfilePage } from './pages/ProfilePage.jsx';
 import { PublicationsPage } from './pages/PublicationsPage.jsx';
 import { findBlogPost } from './data/blogPosts.js';
+import { recordPageView } from './analytics.js';
 
 const routes = {
   profile: ProfilePage,
@@ -31,6 +32,7 @@ function readLocation() {
 
 export default function App() {
   const [location, setLocation] = useState(readLocation);
+  const lastPageView = useRef(null);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -51,6 +53,16 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    const route = routes[location.route] ? location.route : 'profile';
+    const article = route === 'blog' && findBlogPost(location.article) ? location.article : '';
+    const page = route === 'publications' ? location.page : 1;
+    const key = `${route}:${article}:${page}`;
+    if (lastPageView.current === key) return;
+    lastPageView.current = key;
+    recordPageView(route, article, page);
+  }, [location.route, location.article, location.page]);
 
   useEffect(() => {
     const post = location.route === 'blog' ? findBlogPost(location.article) : undefined;
